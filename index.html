@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Build a bubble tea that fits your mood in the Boba Lab. Mix a tea base, flavor, sweetness, and toppings, then save or share your recipe.">
+  <meta name="theme-color" content="#f4eee4">
+  <title>Boba Lab — Mix your mood</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="wordmark" href="#top" aria-label="Boba Lab home"><span class="logo-cup" aria-hidden="true"><i></i><b></b></span><span>BOBA<span class="wordmark-light">LAB</span></span></a>
+      <div class="top-note"><span class="live-dot"></span> YOUR LITTLE DRINK STUDIO</div>
+      <a class="header-link" href="#mixer">Start mixing <span aria-hidden="true">↘</span></a>
+    </header>
+
+    <main id="top">
+      <section class="intro section-wrap">
+        <div class="intro-copy">
+          <p class="kicker"><span>✳</span> A playful flavor experiment</p>
+          <h1>Make a sip<br>that feels like <em>you.</em></h1>
+          <p class="intro-text">Tea, fruit, pearls, a little bit of you. Mix a custom bubble tea and watch your cup come to life.</p>
+          <a class="scroll-link" href="#mixer">Enter the lab <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="intro-doodle" aria-hidden="true">
+          <span class="doodle-sun"></span><span class="doodle-star star-a">✳</span><span class="doodle-star star-b">✦</span>
+          <span class="doodle-label">today's forecast:<br>100% chance of boba</span>
+          <div class="hero-cup"><i class="hero-straw"></i><b class="hero-seal">B</b><span class="hero-tea"></span><span class="hero-pearls"><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+          <span class="orbit orbit-one"></span><span class="orbit orbit-two"></span>
+        </div>
+        <div class="intro-foot"><span>01 / PLAY WITH FLAVOR</span><span>SCROLL TO CREATE ↓</span></div>
+      </section>
+
+      <section class="mixer-section" id="mixer">
+        <div class="section-wrap">
+          <div class="section-title"><div><p class="kicker"><span>01</span> THE MIXER</p><h2>Build your<br><em>perfect pour.</em></h2></div><p class="section-aside">No wrong answers here. Tap around, try a combo, and make the cup your own.</p></div>
+          <div class="mixer-layout">
+            <div class="controls-panel">
+              <div class="mood-row"><div><span class="step-label">START WITH A MOOD</span><p>Need a tiny nudge?</p></div><div class="mood-buttons" role="group" aria-label="Choose a mood preset"><button type="button" class="mood-chip" data-mood="cozy">☁ Cozy</button><button type="button" class="mood-chip" data-mood="sunny">☼ Sunny</button><button type="button" class="mood-chip" data-mood="dreamy">✧ Dreamy</button></div></div>
+              <div class="control-block"><div class="control-heading"><span class="step-number">1</span><div><span class="step-label">PICK A BASE</span><p>What's brewing?</p></div><span class="control-current" id="base-current">Black tea</span></div><div class="choice-grid" id="base-choices" role="group" aria-label="Choose a tea base"></div></div>
+              <div class="control-block"><div class="control-heading"><span class="step-number">2</span><div><span class="step-label">CHOOSE A FLAVOR</span><p>The main character</p></div><span class="control-current" id="flavor-current">Brown sugar</span></div><div class="choice-grid flavor-grid" id="flavor-choices" role="group" aria-label="Choose a flavor"></div></div>
+              <div class="control-block sweetness-block"><div class="control-heading"><span class="step-number">3</span><div><span class="step-label">SET YOUR SWEETNESS</span><p>Your sip, your rules</p></div><span class="control-current" id="sweetness-current">75%</span></div><input id="sweetness" class="sweetness-range" type="range" min="0" max="100" step="25" value="75" aria-label="Sweetness percentage"><div class="range-labels"><span>Less sweet</span><span>Extra sweet</span></div></div>
+              <div class="control-block topping-block"><div class="control-heading"><span class="step-number">4</span><div><span class="step-label">ADD YOUR TOPPINGS</span><p>A little extra texture</p></div><span class="control-current" id="topping-current">1 topping</span></div><div class="topping-list" id="topping-choices"></div></div>
+              <div class="control-footer"><button type="button" class="text-button" id="surprise-button">✳ Surprise me</button><button type="button" class="reset-button" id="reset-button">Start over ↺</button></div>
+            </div>
+
+            <aside class="preview-panel" aria-label="Live drink preview">
+              <div class="preview-top"><span>YOUR CREATION</span><span class="preview-live"><i></i> LIVE</span></div>
+              <div class="cup-stage" id="cup-stage" style="--drink-top:#f5d8a7;--drink-mid:#c99058;--drink-bottom:#5a3429;--accent:#d8a15f">
+                <span class="stage-spark spark-left">✳</span><span class="stage-spark spark-right">✦</span><span class="stage-bubble bubble-one"></span><span class="stage-bubble bubble-two"></span>
+                <div class="preview-cup" id="preview-cup"><i class="preview-straw"></i><div class="preview-lid"></div><div class="preview-liquid"><span class="liquid-shine"></span><span class="liquid-seal">BL</span><div class="preview-pearls" id="preview-pearls"></div></div></div>
+                <span class="stage-floor"></span><span class="stage-caption">MIXED WITH A LITTLE MAGIC</span>
+              </div>
+              <div class="recipe-summary"><div class="recipe-head"><div><span class="step-label">YOUR RECIPE</span><h3 id="recipe-name">Brown Sugar Cloud</h3></div><button type="button" class="save-icon" id="save-button" aria-label="Save this recipe" title="Save this recipe">♡</button></div><p class="recipe-description" id="recipe-description">A cozy black tea sip with brown sugar, tapioca pearls, and just-right sweetness.</p><div class="recipe-tags" id="recipe-tags"></div><button type="button" class="copy-button" id="copy-button"><span>Copy recipe</span><span aria-hidden="true">↗</span></button><p class="copy-feedback" id="copy-feedback" aria-live="polite"></p></div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="saved-section section-wrap" id="saved">
+        <div class="saved-heading"><div><p class="kicker"><span>02</span> YOUR NOTEBOOK</p><h2>Good mixes<br><em>worth keeping.</em></h2></div><p class="section-aside">Save a recipe you love and come back to it later. Your notebook stays right here in this browser.</p></div>
+        <div class="saved-list" id="saved-list" aria-live="polite"></div>
+      </section>
+    </main>
+    <footer class="footer"><a class="wordmark" href="#top"><span class="logo-cup" aria-hidden="true"><i></i><b></b></span><span>BOBA<span class="wordmark-light">LAB</span></span></a><p>A tiny corner of the internet for big boba ideas.</p><a href="#top">Back to top ↑</a></footer>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
